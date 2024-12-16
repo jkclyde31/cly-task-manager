@@ -1,7 +1,7 @@
 import Announcements from "@/components/Announcements";
 import EventCalendar from "@/components/EventCalendar";
 import UserCard from "@/components/UserCard";
-import TasksTable from "@/components/TasksList";
+import TasksTable from "@/components/TaskTable";
 
 const AdminPage = () => {
   return (
