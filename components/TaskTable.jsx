@@ -1,5 +1,6 @@
 import connectDB from "@/config/database";
 import Task from "@/models/Tasks";
+import User from "@/models/User";
 
 const Tasks = async () => {
     await connectDB();
