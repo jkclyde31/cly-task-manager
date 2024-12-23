@@ -2,6 +2,7 @@
 'use client';
 import { useState } from 'react';
 import { Eye } from 'lucide-react';
+import Image from 'next/image';
 
 export function TaskModal({ task }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,9 +45,12 @@ export function TaskModal({ task }) {
                                 <h3 className="font-semibold">Assignees</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {task.assignees?.map((assignee, index) => (
-                                        <span key={index} className="px-2 py-1 bg-gray-100 rounded">
-                                            {assignee.username}
-                                        </span>
+                                        <>
+                                            <Image src={assignee.image} alt="" width={36} height={36} className="rounded-full"/>
+                                            <span key={index} className="px-2 py-1 bg-gray-100 rounded">
+                                                {assignee.username}
+                                            </span>
+                                        </>
                                     ))}
                                 </div>
                             </div>
