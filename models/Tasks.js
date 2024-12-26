@@ -15,10 +15,15 @@ const taskSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
+  category: {
+    type: String,
+    enum: ['Front-end', 'Back-end'],
+    required: [true, 'Please provide a category'],
+  },
   status: {
     type: String,
-    enum: ['To Do', 'Pending', 'In Progress', 'Completed'],
-    default: 'Pending'
+    enum: ['To Do', 'In Progress', 'Completed'],
+    default: 'To Do'
   },
   requestDate: {
     type: Date,

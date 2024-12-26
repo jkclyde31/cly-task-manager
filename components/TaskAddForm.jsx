@@ -40,6 +40,22 @@ const TaskAddForm = async () => {
       </div>
 
       <div className='mb-4'>
+        <label htmlFor='category' className='block text-gray-700 font-bold mb-2'>
+          Category
+        </label>
+        <select
+          id='category'
+          name='category'
+          className='border rounded w-full py-2 px-3'
+          required
+        >
+          <option value=''>Select a category</option>
+          <option value='Front-end'>Front-end</option>
+          <option value='Back-end'>Back-end</option>
+        </select>
+      </div>
+
+      <div className='mb-4'>
         <label htmlFor='assignees' className='block text-gray-700 font-bold mb-2'>
           Assignee/Assignees
         </label>
