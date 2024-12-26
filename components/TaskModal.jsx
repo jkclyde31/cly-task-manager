@@ -33,6 +33,7 @@ export function TaskModal({ task }) {
                             </button>
                         </div>
                         <div className="space-y-4">
+                           
                             <div>
                                 <h3 className="font-semibold">Status</h3>
                                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
@@ -43,23 +44,30 @@ export function TaskModal({ task }) {
                                 </span>
                             </div>
                             <div>
-                                <h3 className="font-semibold">Assignees</h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {task.assignees?.map((assignee, index) => (
-                                        <>
-                                            <Image src={assignee.image} alt="" width={36} height={36} className="rounded-full"/>
-                                            <span key={index} className="px-2 py-1 bg-gray-100 rounded">
-                                                {assignee.username}
-                                            </span>
-                                        </>
-                                    ))}
-                                </div>
+                                <h3 className="font-semibold">Description</h3>
+                                <p>{task.description}</p>
                             </div>
+
+
+                          <div className="flex justify-between">
                             <div>
-                                <h3 className="font-semibold">Dates</h3>
-                                <p>Request Date: {new Date(task.requestDate).toLocaleDateString()}</p>
-                                <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
-                            </div>
+                                    <h3 className="font-semibold">Assignees</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {task.assignees?.map((assignee, index) => (
+                                            <>
+                                                <Image src={assignee.image} alt="" width={36} height={36} className="rounded-full"/>
+                                                <span key={index} className="px-2 py-1 bg-gray-100 rounded">
+                                                    {assignee.username}
+                                                </span>
+                                            </>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div>
+                                    <p><span className="font-bold">Request Date:</span> {new Date(task.requestDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                    <p><span className="font-bold">Due Date:</span> {new Date(task.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                </div>
+                          </div>
                         </div>
                     </div>
                 </div>
