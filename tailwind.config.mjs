@@ -24,12 +24,17 @@ export default {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        lamaSky: "#C3EBFA",
-        lamaSkyLight: "#EDF9FD",
-        lamaPurple: "#CFCEFF",
-        lamaPurpleLight: "#F1F0FF",
-        lamaYellow: "#FAE27C",
-        lamaYellowLight: "#FEFCE8",
+        Sky: "#C3EBFA",
+        SkyLight: "#EDF9FD",
+        Purple: "#CFCEFF",
+        PurpleLight: "#F1F0FF",
+        Yellow: "#FAE27C",
+        YellowLight: "#FEFCE8",
+
+        todo:'#FAE27C',
+        progress:'#CFCEFF',
+        review:'#C3EBFA',
+        done: '#D0F0C0'
       },
     },
   },

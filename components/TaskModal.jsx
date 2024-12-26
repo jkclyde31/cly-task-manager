@@ -37,11 +37,12 @@ export function TaskModal({ task }) {
                             <div>
                                 <h3 className="font-semibold">Status</h3>
                                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                    ${task.status === 'Completed' ? 'bg-green-100 text-green-800' : 
-                                    task.status === 'In Progress' ? 'bg-blue-100 text-blue-800' : 
-                                    'bg-yellow-100 text-yellow-800'}`}>
-                                    {task.status}
-                                </span>
+                                            ${task.status === 'Completed' ? 'bg-done text-green-800' : 
+                                            task.status === 'In Progress' ? 'bg-progress text-blue-800' : 
+                                            task.status === 'Review' ? 'bg-review text-blue-800' : 
+                                            'bg-todo text-yellow-900'}`}>
+                                            {task.status}
+                                        </span>
                             </div>
                             <div>
                                 <h3 className="font-semibold">Description</h3>
