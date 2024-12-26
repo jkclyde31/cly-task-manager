@@ -1,31 +1,31 @@
 import { role } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
+import { LayoutDashboard, ListCheck } from "lucide-react";
 
 const menuItems = [
   {
     title: "TASKS",
     items: [
       {
-        icon: "/subject.png",
+        icon: LayoutDashboard,
         label: "Dashboard",
-        href: "/tasks/todo",
+        href: "/admin",
         visible: ["admin"],
       },
       {
-        icon: "/subject.png",
+        icon: "/subject.png", // Use the LayoutDashboard component
         label: "My Tasks",
-        href: "/tasks/progress",
+        href: "/tasks/my-tasks",
         visible: ["admin"],
       },
       {
-        icon: "/subject.png",
+        icon: ListCheck,
         label: "My Activities",
         href: "/tasks/review",
         visible: ["admin"],
       },
-   
-    ]
+    ],
   },
   {
     title: "OTHER",
@@ -36,12 +36,12 @@ const menuItems = [
         href: "/profile",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      {
-        icon: "/setting.png",
-        label: "Settings",
-        href: "/settings",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
+      // {
+      //   icon: "/setting.png",
+      //   label: "Settings",
+      //   href: "/settings",
+      //   visible: ["admin", "teacher", "student", "parent"],
+      // },
       {
         icon: "/logout.png",
         label: "Logout",
@@ -55,12 +55,12 @@ const menuItems = [
 const Menu = () => {
   return (
     <div className="mt-4 text-sm">
-      {menuItems.map((i) => (
-        <div className="flex flex-col gap-2" key={i.title}>
+      {menuItems.map((section) => (
+        <div className="flex flex-col gap-2" key={section.title}>
           <span className="hidden lg:block text-gray-400 font-light my-4">
-            {i.title}
+            {section.title}
           </span>
-          {i.items.map((item) => {
+          {section.items.map((item) => {
             if (item.visible.includes(role)) {
               return (
                 <Link
@@ -68,7 +68,11 @@ const Menu = () => {
                   key={item.label}
                   className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
                 >
-                  <Image src={item.icon} alt="" width={20} height={20} />
+                  {typeof item.icon === "string" ? (
+                    <Image src={item.icon} alt={item.label} width={20} height={20} />
+                  ) : (
+                    <item.icon size={20} className="text-gray-500" />
+                  )}
                   <span className="hidden lg:block">{item.label}</span>
                 </Link>
               );
