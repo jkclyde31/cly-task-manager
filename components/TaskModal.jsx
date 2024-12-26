@@ -35,6 +35,8 @@ export function TaskModal({ task }) {
         const colors = {
             'Completed': 'bg-green-100 text-green-800',
             'In Progress': 'bg-blue-100 text-blue-800',
+            'Review' : 'bg-review text-blue-800' ,
+
             'To Do': 'bg-yellow-100 text-yellow-800'
         };
         return colors[statusValue] || 'bg-gray-100 text-gray-800';
@@ -62,7 +64,8 @@ export function TaskModal({ task }) {
                             </button>
                         </div>
                         <div className="space-y-4">
-                            <div>
+                          <div className="flex justify-between">
+                          <div>
                                 <h3 className="font-semibold mb-2">Status</h3>
                                 <select
                                     value={status}
@@ -72,16 +75,12 @@ export function TaskModal({ task }) {
                                 >
                                     <option value="To Do">To Do</option>
                                     <option value="In Progress">In Progress</option>
+                                    <option value="Review">Review</option>
                                     <option value="Completed">Completed</option>
                                 </select>
                                 {isPending && (
                                     <span className="ml-2 text-sm text-gray-500">Updating...</span>
                                 )}
-                            </div>
-
-                            <div>
-                                <h3 className="font-semibold">Description</h3>
-                                <p>{task.description}</p>
                             </div>
 
                             <div className="flex justify-between">
@@ -104,11 +103,20 @@ export function TaskModal({ task }) {
                                         ))}
                                     </div>
                                 </div>
-                                <div>
+                               
+                            </div>
+                          </div>
+
+                            <div>
+                                <h3 className="font-semibold">Description</h3>
+                                <p>{task.description}</p>
+                            </div>
+
+                         
+                            <div>
                                     <p><span className="font-bold">Request Date:</span> {new Date(task.requestDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                                     <p><span className="font-bold">Due Date:</span> {new Date(task.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
