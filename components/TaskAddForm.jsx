@@ -1,12 +1,10 @@
 import addTask from "@/app/actions/addTask";
-import connectDB from "@/config/database";
-import User from "@/models/User";
+import { getUsers } from "@/app/actions/getUsers";
+
 
 const TaskAddForm = async () => {
-  await connectDB();
-  
-  // Await the result of the database query
-  const users = await User.find({}).lean();
+  const users =await getUsers();
+
 
   // Get the current date in YYYY-MM-DD format
   const currentDate = new Date().toISOString().split("T")[0];

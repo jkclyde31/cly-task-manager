@@ -1,9 +1,11 @@
 'use server'
 import connectDB from "@/config/database"
 import Task from "@/models/Tasks"
+import User from "@/models/User";
 import { getSessionUser } from "@/utils/getSessionUser"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+
 
 async function addTask(formData) {
     await connectDB();
@@ -18,7 +20,7 @@ async function addTask(formData) {
 
     // Access value for assignees
     const assignees = formData.getAll('assignees');
-    const status = "In Progress"
+    const status = "To Do";
 
     const taskData = {
         name: formData.get('name'),

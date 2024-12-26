@@ -1,12 +1,9 @@
 // page.js (Server Component)
-import connectDB from "@/config/database";
-import Task from "@/models/Tasks";
-import User from "@/models/User";
 import { TaskModal } from './TaskModal';
+import { getTasks } from '@/app/actions/getTasks';
 
 const Tasks = async () => {
-    await connectDB();
-    const tasks = await Task.find({}).populate('assignees', 'username image').lean();
+    const tasks = await getTasks();
 
     return (
         <div className="container mx-auto p-6">
