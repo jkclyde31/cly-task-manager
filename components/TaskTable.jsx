@@ -1,15 +1,22 @@
 // page.js (Server Component)
 import { TaskModal } from './TaskModal';
 import { getTasks } from '@/app/actions/getTasks';
+import { Plus } from 'lucide-react';
+import Link from 'next/link';
 
 const Tasks = async () => {
     const tasks = await getTasks();
 
     return (
-        <div className="container mx-auto p-6">
-            <div className="p-2">
+        <div className="container mx-auto p-6 ">
+            <div className="p-2 flex justify-between">
                 <h2 className="text-2xl font-bold text-gray-800">Tasks</h2>
+                <Link href="/tasks/add" className="text-blue-600 hover:text-blue-800 px-1">
+                    <Plus size={25} />
+                 </Link>
             </div>
+
+
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
@@ -30,10 +37,11 @@ const Tasks = async () => {
                                         <div className="text-sm font-medium text-gray-900">{task.name}</div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex -space-x-1">
+                                        <div className="flex flex-col gap-1">
                                             {task.assignees?.map((assignee, index) => (
                                                 <div key={index} className="text-sm font-medium">
                                                     {assignee.username}
+
                                                 </div>
                                             ))}
                                         </div>

@@ -1,15 +1,9 @@
 import addTask from "@/app/actions/addTask";
 import { getUsers } from "@/app/actions/getUsers";
 
-
 const TaskAddForm = async () => {
-  const users =await getUsers();
-
-
-  // Get the current date in YYYY-MM-DD format
+  const users = await getUsers();
   const currentDate = new Date().toISOString().split("T")[0];
-
-    console.log(users);
 
   return (
     <form action={addTask}>
@@ -50,22 +44,20 @@ const TaskAddForm = async () => {
           Assignee/Assignees
         </label>
         <select
-            id="assignees"
-            name="assignees"
-            className="border rounded w-full py-2 px-3"
-            required
-            >
-            {/* Add a default placeholder option */}
-            <option value="" disabled selected>
-                Select Assignee
+          id="assignees"
+          name="assignees"
+          className="border rounded w-full py-2 px-3"
+          required
+          multiple
+          size={4}
+        >
+          {users.map((user) => (
+            <option key={user._id} value={user._id}>
+              {user.username}
             </option>
-            {/* Map over the users to create option elements */}
-            {users.map((user) => (
-                <option key={user._id} value={user._id}>
-                {user.username}
-                </option>
-            ))}
-            </select>
+          ))}
+        </select>
+        <p className="text-sm text-gray-600 mt-1">Hold Ctrl/Cmd to select multiple assignees</p>
       </div>
 
       <div className='mb-4'>

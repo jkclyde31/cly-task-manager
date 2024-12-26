@@ -1,7 +1,7 @@
 // TaskModal.js (Client Component)
 'use client';
 import { useState } from 'react';
-import { Eye } from 'lucide-react';
+import { Eye, Plus } from 'lucide-react';
 import Image from 'next/image';
 
 export function TaskModal({ task }) {
@@ -14,10 +14,11 @@ export function TaskModal({ task }) {
         <>
             <button
                 onClick={openModal}
-                className="text-blue-600 hover:text-blue-800"
+                className="text-blue-600 hover:text-blue-800 px-1"
             >
                 <Eye size={20} />
             </button>
+          
 
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
