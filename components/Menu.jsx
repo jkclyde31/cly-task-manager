@@ -8,28 +8,23 @@ const menuItems = [
     items: [
       {
         icon: "/subject.png",
-        label: "To Do",
+        label: "Dashboard",
         href: "/tasks/todo",
         visible: ["admin"],
       },
       {
         icon: "/subject.png",
-        label: "In Progress",
+        label: "My Tasks",
         href: "/tasks/progress",
         visible: ["admin"],
       },
       {
         icon: "/subject.png",
-        label: "Review",
+        label: "My Activities",
         href: "/tasks/review",
         visible: ["admin"],
       },
-      {
-        icon: "/subject.png",
-        label: "Completed",
-        href: "/tasks/completed",
-        visible: ["admin"],
-      },
+   
     ]
   },
   {

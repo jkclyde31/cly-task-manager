@@ -8,7 +8,7 @@ const Tasks = async () => {
     const tasks = await getTasks();
 
     return (
-        <div className="container mx-auto p-6 ">
+        <div className="w-full mx-auto px-0 md:px-2 py-4">
             <div className="p-2 flex justify-between">
                 <h2 className="text-2xl font-bold text-gray-800">Tasks</h2>
                 <Link href="/tasks/add" className="text-blue-600 hover:text-blue-800 px-1">
