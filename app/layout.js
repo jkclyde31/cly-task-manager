@@ -14,12 +14,12 @@ export const metadata = {
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <Suspense>
+      {/* <Suspense> */}
         <AuthProvider>
-         <LoadingSpinner/>
+         {/* <LoadingSpinner/> */}
             <body className={inter.className}>{children}</body>
         </AuthProvider>
-      </Suspense>
+      {/* </Suspense> */}
     </html>
   );
 }
