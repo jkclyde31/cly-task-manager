@@ -1,47 +1,45 @@
 'use client'
 
-import { useState, useEffect } from 'react';
-import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { getAuthProviders } from '../actions/getAuthProviders'
 
 const LoginPage = () => {
-  const { data: session, status } = useSession();
-  const [providers, setProviders] = useState(null);
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: session, status } = useSession()
+  const [providers, setProviders] = useState(null)
+  const router = useRouter()
 
   useEffect(() => {
-    const setAuthProviders = async () => {
+    const fetchProviders = async () => {
       try {
-        const res = await getProviders();
-        setProviders(res);
+        const res = await getAuthProviders()
+        setProviders(res)
       } catch (error) {
-        console.error('Error fetching providers:', error);
-      } finally {
-        setIsLoading(false);
+        console.error('Error fetching providers:', error)
       }
-    };
+    }
 
-    setAuthProviders();
-  }, []);
+    fetchProviders()
+  }, [])
 
   useEffect(() => {
     if (session?.user) {
-      router.push('/admin');
+      router.push('/admin')
     }
-  }, [session, router]);
+  }, [session, router])
 
-  // Show loading spinner while checking session and fetching providers
-  if (status === "loading" || isLoading) {
+  // Show loading spinner while checking session
+  if (status === "loading" || !providers) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
       </div>
-    );
+    )
   }
 
   // If there's a session, don't render the login page
-  if (session) return null;
+  if (session) return null
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -83,7 +81,7 @@ const LoginPage = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage
