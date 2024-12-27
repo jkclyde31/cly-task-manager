@@ -4,6 +4,7 @@ import Task from "@/models/Tasks"
 import { getSessionUser } from "@/utils/getSessionUser"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+import createNotification from "./createNotification"
 
 async function addTask(formData) {
     await connectDB();
@@ -35,6 +36,13 @@ async function addTask(formData) {
 
     const newTask = new Task(taskData);
     await newTask.save();
+
+      // Create notifications for all assignees after task is saved
+      for (const assigneeId of assignees) {
+        await createNotification(assigneeId, newTask._id, taskData.name);
+    }
+
+    
 
     revalidatePath('/', 'layout');
     redirect(`/admin/`);
