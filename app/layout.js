@@ -16,10 +16,8 @@ export default function RootLayout({children}) {
     <html lang="en">
       <Suspense>
         <AuthProvider>
-            <body className={inter.className}>
-            <LoadingSpinner/>
-
-              {children}</body>
+         <LoadingSpinner/>
+            <body className={inter.className}>{children}</body>
         </AuthProvider>
       </Suspense>
     </html>

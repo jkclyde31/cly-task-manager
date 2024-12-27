@@ -30,5 +30,4 @@ export async function getNotification() {
         .lean();
 
         return notifications;
-
 }
