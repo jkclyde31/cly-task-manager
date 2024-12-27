@@ -56,7 +56,6 @@ const menuItems = [
 const Menu = () => {
   return (
    <>
-    {/* <LoadingSpinner /> */}
     <div className="mt-4 text-sm">
       {menuItems.map((section) => (
         <div className="flex flex-col gap-2" key={section.title}>
