@@ -5,5 +5,8 @@ export async function NotificationWrapper() {
   const notifications = await getNotification()
   const count = notifications.length
   
-  return <NotificationCount initialCount={count}  />
+  return <NotificationCount 
+    initialCount={count} 
+    notifications={notifications}
+  />
 }

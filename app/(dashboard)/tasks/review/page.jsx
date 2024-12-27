@@ -11,7 +11,7 @@ export default async function NotificationsPage() {
         <div className="bg-white rounded-lg shadow-lg p-6">
           <div className="flex items-center gap-3 mb-6">
             <Bell className="w-6 h-6 text-blue-500" />
-            <h1 className="text-2xl font-bold text-gray-800">Notifications</h1>
+            <h1 className="text-2xl font-bold text-gray-800">My Activities</h1>
           </div>
 
           {notifications.length === 0 ? (
