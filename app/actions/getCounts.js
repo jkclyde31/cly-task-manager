@@ -2,7 +2,9 @@ import connectDB from "@/config/database";
 import Task from "@/models/Tasks";
 import User from "@/models/User";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+// import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/utils/AuthOptions";
+
 
 // Original function for getting all task counts
 export async function getTaskCounts() {
