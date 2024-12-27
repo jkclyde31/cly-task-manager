@@ -1,4 +1,4 @@
-import MyTasks from "@/components/myTasks";
+import MyTasks from "@/components/MyTasks";
 import UserCard from "@/components/UserCard";
 import { getMyTaskCounts } from "@/app/actions/getCounts";
 
