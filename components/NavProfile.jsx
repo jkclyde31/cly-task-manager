@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 import { useSession, signOut } from 'next-auth/react'
 import Image from "next/image"
@@ -21,10 +21,10 @@ export function NavProfile() {
   //   return <div className="animate-pulse h-9 w-36 bg-gray-200 rounded-full" />
   // }
 
-  // // Only render profile if authenticated
-  // if (!session?.user) {
-  //   return null
-  // }
+  // Only render profile if authenticated
+  if (!session?.user) {
+    return null
+  }
 
   const { image: profileImage, name } = session.user
 
