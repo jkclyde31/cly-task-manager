@@ -17,7 +17,7 @@ const taskSchema = new mongoose.Schema({
   }],
   category: {
     type: String,
-    enum: ['Front-end', 'Back-end'],
+    enum: ['Front-end', 'Back-end', 'Full Stack'],
     required: [true, 'Please provide a category'],
   },
   status: {
