@@ -5,16 +5,20 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 const Navbar = () => {
-  const { data: session } = useSession();
-  const router = useRouter();
+  // const { data: session } = useSession();
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   if (session?.user) {
+  //     router.push('/admin');
+  //   }else{
+  //     router.push('/login');
+  //   }
+  // }, [session, router]);
 
   useEffect(() => {
-    if (session?.user) {
       router.push('/admin');
-    }else{
-      router.push('/login');
-    }
-  }, [session, router]);
+  }, []);
 
   return (
     <h1>
