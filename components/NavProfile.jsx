@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
 import { useSession, signOut } from 'next-auth/react'
 import Image from "next/image"
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export function NavProfile() {
   const { data: session, status } = useSession()
-  const router = useRouter()
+  // const router = useRouter()
 
   // Redirect to login if no session
   // useEffect(() => {
@@ -16,10 +16,10 @@ export function NavProfile() {
   //   }
   // }, [status, router])
 
-  // Show loading state while checking session
-  if (status === 'loading') {
-    return <div className="animate-pulse h-9 w-36 bg-gray-200 rounded-full" />
-  }
+  // // Show loading state while checking session
+  // if (status === 'loading') {
+  //   return <div className="animate-pulse h-9 w-36 bg-gray-200 rounded-full" />
+  // }
 
   // // Only render profile if authenticated
   // if (!session?.user) {
