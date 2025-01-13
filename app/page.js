@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const Navbar = () => {
   // const { data: session } = useSession();
-  // const router = useRouter();
+  const router = useRouter();
 
   // useEffect(() => {
   //   if (session?.user) {

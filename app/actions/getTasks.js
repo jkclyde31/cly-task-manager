@@ -10,7 +10,10 @@ import { authOptions } from "@/utils/AuthOptions";
 
 export async function getTasks() {
     await connectDB();
-    const tasks = await Task.find({}).populate('assignees', 'username image').lean();
+    const tasks = await Task.find({})
+    .populate('assignees', 'username image')
+    .sort({ requestDate: -1 })  // Sort by requestDate in descending order (-1)
+    .lean();
     return tasks;
 }
 
