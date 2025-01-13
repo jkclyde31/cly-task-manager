@@ -3,7 +3,7 @@
 import { useSession, signOut } from 'next-auth/react'
 import Image from "next/image"
 // import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 export function NavProfile() {
   const { data: session, status } = useSession()
