@@ -46,14 +46,14 @@ export function NavProfile() {
         </span>
       </div>
 
-      <button
+      {/* <button
         onClick={() => signOut({ callbackUrl: '/' })}
         className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 
           transition-colors rounded-md'
         role='menuitem'
       >
         Sign Out
-      </button>
+      </button> */}
     </div>
   )
 }

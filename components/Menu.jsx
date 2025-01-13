@@ -1,8 +1,13 @@
+'use client'
+
+
 import { role } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import { LayoutDashboard, ListCheck } from "lucide-react";
 import LoadingSpinner from "./LoadingSpinner";
+import { useSession, signOut } from 'next-auth/react'
+
 
 const menuItems = [
   {
@@ -28,29 +33,29 @@ const menuItems = [
       },
     ],
   },
-  {
-    title: "OTHER",
-    items: [
-      // {
-      //   icon: "/profile.png",
-      //   label: "Profile",
-      //   href: "/profile",
-      //   visible: ["admin", "teacher", "student", "parent"],
-      // },
-      // {
-      //   icon: "/setting.png",
-      //   label: "Settings",
-      //   href: "/settings",
-      //   visible: ["admin", "teacher", "student", "parent"],
-      // },
-      // {
-      //   icon: "/logout.png",
-      //   label: "Logout",
-      //   href: "/logout",
-      //   visible: ["admin", "teacher", "student", "parent"],
-      // },
-    ],
-  },
+  // {
+  //   title: "OTHER",
+  //   items: [
+  //     // {
+  //     //   icon: "/profile.png",
+  //     //   label: "Profile",
+  //     //   href: "/profile",
+  //     //   visible: ["admin", "teacher", "student", "parent"],
+  //     // },
+  //     // {
+  //     //   icon: "/setting.png",
+  //     //   label: "Settings",
+  //     //   href: "/settings",
+  //     //   visible: ["admin", "teacher", "student", "parent"],
+  //     // },
+  //     // {
+  //     //   icon: "/logout.png",
+  //     //   label: "Logout",
+  //     //   href: "/logout",
+  //     //   visible: ["admin", "teacher", "student", "parent"],
+  //     // },
+  //   ],
+  // },
 ];
 
 const Menu = () => {
@@ -80,8 +85,17 @@ const Menu = () => {
               );
             }
           })}
+       
         </div>
       ))}
+          <button
+                  onClick={() => signOut({ callbackUrl: '/' })}
+                  className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 
+                    transition-colors rounded-md w-full mt-[75px] bg-Sky'
+                  role='menuitem'
+                >
+                  Sign Out
+            </button>
     </div>
    </>
   );
