@@ -1,4 +1,3 @@
-// components/TaskModal.jsx
 'use client';
 
 import { useState } from 'react';
@@ -35,8 +34,7 @@ export function TaskModal({ task }) {
         const colors = {
             'Completed': 'bg-green-100 text-green-800',
             'In Progress': 'bg-blue-100 text-blue-800',
-            'Review' : 'bg-review text-blue-800' ,
-
+            'Review' : 'bg-review text-blue-800',
             'To Do': 'bg-yellow-100 text-yellow-800'
         };
         return colors[statusValue] || 'bg-gray-100 text-gray-800';
@@ -53,7 +51,7 @@ export function TaskModal({ task }) {
 
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-lg p-6 max-w-2xl w-full mx-4">
+                    <div className="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-2xl font-bold">{task.name}</h2>
                             <button
@@ -103,20 +101,20 @@ export function TaskModal({ task }) {
                                         ))}
                                     </div>
                                 </div>
-                               
                             </div>
                           </div>
 
                             <div>
                                 <h3 className="font-semibold">Description</h3>
-                                <p>{task.description}</p>
+                                <p className="break-words whitespace-pre-wrap max-h-40 overflow-y-auto border rounded-md p-3">
+                                    {task.description}
+                                </p>
                             </div>
 
-                         
                             <div>
-                                    <p><span className="font-bold">Request Date:</span> {new Date(task.requestDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                                    <p><span className="font-bold">Due Date:</span> {new Date(task.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                                </div>
+                                <p><span className="font-bold">Request Date:</span> {new Date(task.requestDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p><span className="font-bold">Due Date:</span> {new Date(task.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
