@@ -52,6 +52,7 @@ const TaskAddForm = async () => {
           <option value=''>Select a category</option>
           <option value='Front-end'>Front-end</option>
           <option value='Back-end'>Back-end</option>
+          <option value='Back-end'>Full Stack</option>
         </select>
       </div>
 
