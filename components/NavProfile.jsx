@@ -10,21 +10,21 @@ export function NavProfile() {
   const router = useRouter()
 
   // Redirect to login if no session
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/login')
-    }
-  }, [status, router])
+  // useEffect(() => {
+  //   if (status === 'unauthenticated') {
+  //     router.push('/login')
+  //   }
+  // }, [status, router])
 
   // Show loading state while checking session
   if (status === 'loading') {
     return <div className="animate-pulse h-9 w-36 bg-gray-200 rounded-full" />
   }
 
-  // Only render profile if authenticated
-  if (!session?.user) {
-    return null
-  }
+  // // Only render profile if authenticated
+  // if (!session?.user) {
+  //   return null
+  // }
 
   const { image: profileImage, name } = session.user
 
